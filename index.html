@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Game</title>
+    <style>
+        
+        #game-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+        }
+
+        #buttonleft {
+            position: absolute;
+            top: 50%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #buttonright {
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <h1 style="padding-left: 70px;">ARE YOU GAY</h1>
+    <button id="buttonleft" onclick="handleButtonClick()">No</button>
+    <button id="buttonright">Yes</button>
+</div>
+
+
+<script>
+    function handleButtonClick() {
+        // Randomly change the position of the button
+        const button = document.getElementById("buttonleft");
+        const container = document.getElementById("game-container");
+
+        const newTop = Math.random() * (container.clientHeight - button.clientHeight);
+        const newLeft = Math.random() * (container.clientWidth - button.clientWidth);
+
+        button.style.top = newTop + "px";
+        button.style.left = newLeft + "px";
+    }
+
+    // End the game when the "Yes" button is clicked
+    document.getElementById("buttonright").addEventListener("click", function (event) {
+        if (event.target.innerText === "Yes") {
+            alert("Congratulations! YOU ARE GAY");
+        }
+    });
+</script>
+
+</body>
+</html>
